@@ -9,7 +9,8 @@ final String title;
  final String id;
  const CategoryItem(this.id, this.color, this.title);
  void selectedScreen(BuildContext ctx){
-   Navigator.of(ctx).pushNamed("/categories_meals_screen", arguments: {'id':id,'title':title});
+   Navigator.of(ctx).pushNamed("/categories_meals_screen",
+    arguments: {'id':id,'title':title});
    
 
  }

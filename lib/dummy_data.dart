@@ -56,6 +56,7 @@ const Dummy_Categories = [
   ),
 ];
 
+// ignore: constant_identifier_names
 const DUMMY_MEALS =[
   Meal(
     id: 'm1',

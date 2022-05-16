@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:daily_meals/categories_meals_screen.dart';
-import 'package:daily_meals/categories_screen.dart';
+import 'package:daily_meals/screens/categories_meals_screen.dart';
+import 'package:daily_meals/screens/categories_screen.dart';
 import 'package:flutter/material.dart';
 void main(List<String> args) {
   runApp( MaterialApp(
@@ -13,7 +13,7 @@ void main(List<String> args) {
     // ignore: prefer_const_constructors
     home: CatergoriesScreen(),
     routes: {
-      "/categories_meals_screen":((context) => CategoriesMealsScreen()),
+      "/categories_meals_screen":(context) => CategoriesMealsScreen(),
     },
   ));
 }
