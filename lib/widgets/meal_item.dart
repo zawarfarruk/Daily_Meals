@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:daily_meals/screens/meal_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
@@ -48,11 +50,17 @@ class MealItem extends StatelessWidget {
       @required this.imageUrl,
       @required this.duration,
       @required this.complexity,
-      @required this.affordability});
+      @required this.affordability,
+      
+      });
   void selectMeal(BuildContext context) {
     Navigator.of(context).pushNamed(
       MealDetails.routename,
-       arguments: id);
+       arguments: id).then((result) { 
+          if (result!=null){
+          //  removeIt(result);
+          }
+       });
   }
 
   @override

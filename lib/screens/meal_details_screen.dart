@@ -1,9 +1,13 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:daily_meals/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class MealDetails extends StatelessWidget {
-  const MealDetails({Key key}) : super(key: key);
+  const MealDetails(this.toggleFunction,this.isMealFavourite);
   static const routename = "/meal-details-screen";
+  final Function toggleFunction;
+  final Function isMealFavourite;
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       margin: const EdgeInsets.symmetric(
@@ -44,7 +48,7 @@ class MealDetails extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 300,
                 width: double.infinity,
                 child: Image.network(
@@ -67,20 +71,32 @@ class MealDetails extends StatelessWidget {
               buildSectionTitle(context, "Steps"),
               buildContainer(ListView.builder(
                 itemBuilder: ((context, index) => Column(
-                  children: [
-                    ListTile(
+                      children: [
+                        ListTile(
                           leading: CircleAvatar(
-                            child:  Text("#${(index+1)}"),
+                            child: Text("#${(index + 1)}"),
                           ),
                           title: Text(selectedMeal.steps[index]),
                         ),
-                        const Divider(thickness: 1,)
-                  ],
-                )),
+                        const Divider(
+                          thickness: 1,
+                        )
+                      ],
+                    )),
                 itemCount: selectedMeal.steps.length,
               ))
             ],
           ),
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(
+            isMealFavourite(mealId)?Icons.star:Icons.star_border
+            ),
+          onPressed:(){toggleFunction(mealId);},
+          
+
+
+        ),
+        );
   }
 }
